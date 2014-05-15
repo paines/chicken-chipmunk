@@ -1,0 +1,21 @@
+Bindings to Chipmunk2D
+
+- Version: 0.1
+- Author: Richard van Roy
+- Project: [[https://github.com/pluizer/chicken-chipmunk]]
+- License: [[http://opensource.org/licenses/MIT]MIT]
+
+* About
+
+This egg contains wrapper for Chipmunk2D. Though it is usable in itself, its main purpose is to serve as a foundation for chicken-physics, which is a more high-level library that lifts the strengths of Scheme.
+
+* Installation
+
+This egg comes with Chipmunk 6.2.1 built-in. Simply clone this repository and run =chicken-install= inside the project's root directory.
+
+* Todo
+
+- Unit tests
+- Setters for cpContactPointSet (I'm looking for a clean way of doing this)
+
+For the rest, everything mentioned in [[http://chipmunk-physics.net/release/ChipmunkLatest-Docs/]Chipmunk's manual] is covered.
