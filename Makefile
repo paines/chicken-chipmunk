@@ -14,7 +14,7 @@ chipmunk.import.so: chipmunk.import.scm
 	$(CSC) -s -O3 -d0 chipmunk.import.scm
 
 clean:
-	$(RM) -f chipmunk.so chipmunk.import.so chipmunk-high.so chipmunk-high.import.so
+	$(RM) -f chipmunk.so chipmunk.import.so
 
 clean_all: clean
 	cd deps/chipmunk; $(MAKE) clean
