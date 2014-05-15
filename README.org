@@ -3,7 +3,7 @@ Bindings to Chipmunk2D
 - Version: 0.1
 - Author: Richard van Roy
 - Project: [[https://github.com/pluizer/chicken-chipmunk]]
-- License: [[http://opensource.org/licenses/MIT]MIT]
+- License: [[http://opensource.org/licenses/MIT][MIT]]
 
 * About
 
@@ -18,4 +18,4 @@ This egg comes with Chipmunk 6.2.1 built-in. Simply clone this repository and ru
 - Unit tests
 - Setters for cpContactPointSet (I'm looking for a clean way of doing this)
 
-For the rest, everything mentioned in [[http://chipmunk-physics.net/release/ChipmunkLatest-Docs/]Chipmunk's manual] is covered.
+For the rest, everything mentioned in [[http://chipmunk-physics.net/release/ChipmunkLatest-Docs/][Chipmunk's manual]] is covered.
