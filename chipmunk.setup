@@ -1,4 +1,4 @@
 (run (make))
-(install-extension 'coati '(
+(install-extension 'chicken '(
 	"chipmunk.so" "chipmunk.import.so"
 ))
