@@ -7,7 +7,7 @@ Bindings to Chipmunk2D
 
 * About
 
-This egg contains wrapper for Chipmunk2D. Though it is usable in itself, its main purpose is to serve as a foundation for [[https://github.com/pluizer/chicken-physics][chicken-physics]], which is a more high-level library that lifts the strengths of Scheme.
+This egg contains a wrapper for Chipmunk2D. Though it is usable in itself, its main purpose is to serve as a foundation for [[https://github.com/pluizer/chicken-physics][chicken-physics]], which is a more high-level library that lifts the strengths of Scheme.
 
 * Installation
 
