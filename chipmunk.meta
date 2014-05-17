@@ -1,2 +1,3 @@
 ((author "Richard van Roy")
+ (needs chipmunk)
  (synopsis "Wrappers to the 2d physic library Chipmunk"))
