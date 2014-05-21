@@ -29,7 +29,7 @@ THE SOFTWARE.
   *
   (import chicken scheme foreign)
 
-(use lolevel srfi-1 srfi-4)
+(use coati-primitives lolevel srfi-1 srfi-4)
 
 (include "binding-helpers.scm")
 
@@ -39,77 +39,6 @@ THE SOFTWARE.
 
 ; Overwrite this to automatically convert units
 (define cp-scale 1)
-
-;-------------------------------------------------------
-; cpVect
-;-------------------------------------------------------
-(define (create-vect x y) (f64vector x y))
-
-(define vect-zero (create-vect 0 0))
-
-(define (vect-x vect) (f64vector-ref vect 0))
-(define (vect-y vect) (f64vector-ref vect 1))
-
-(%define-chipmunk-foreign-methods (vect vect)
-  (=? ("cpveql" bool vect))
-  (add ("cpvadd" vect vect))
-  (sub ("cpvsub" vect vect))
-  (neg ("cpvneg" vect))
-  (mult ("cpvmult" vect double))
-  (dot ("cpvdot" double vect))
-  (cross ("cpvcross" double vect))
-  (perp ("cpvperp" vect))
-  (rperp ("cpvrperp" vect))
-  (project ("cpvproject" vect vect))
-  (rotate ("cpvrotate" vect vect))
-  (unrotate ("cpvunrotate" vect vect))
-  (length ("cpvlength" double))
-  (length-squared ("cpvlengthsq" double))
-  (lerp ("cpvlerp" vect vect double))
-  (lerpconst ("cpvlerpconst" vect vect double))
-  (slerp ("cpvslerp" vect vect double))
-  (slerpconst ("cpvslerpconst" vect vect double))
-  (normalize ("cpvnormalize" vect))
-  (clamp ("cpvclamp" vect double))
-  (dist ("cpvdist" double vect))
-  (dist-squared ("cpvdistsq" double vect))
-  (near? ("cpvnear" bool vect double)))
-
-(define angle->vect (%cm-lambda vect "cpvforangle" double))
-(define vect->angle (%cm-lambda double "cpvtoangle" vect))
-
-;-------------------------------------------------------
-; cpBB
-;-------------------------------------------------------
-
-(define (create-bb left-bottom right-top)
-  ((lambda (lb rt)
-     (f64vector (vect-x lb) (vect-y lb)
-                (vect-y rt) (vect-y rt)))
-   left-bottom
-   right-top))
-
-(define create-bb-for-circle (%cm-lambda bb "cpBBNewForCircle" vect double))
-
-(define (bb-left-bottom bb)
-  (subf64vector bb 0 2))
-
-(define (bb-right-top bb)
-  (subf64vector bb 2 4))
-
-(%define-chipmunk-foreign-methods (bb bb)
-  (intersects? ("cpBBIntersects" bool bb))
-  (contains-bb? ("cpBBContainsBB" bool bb))
-  (contains-vect? ("cpBBContainsVect" bool vect))
-  (merge ("cpBBMerge" bb bb))
-  (expand ("cpBBExpand" bb vect))
-  (center ("cpBBCenter" vect))
-  (area ("cpBBArea" double))
-  (merged-area ("cpBBMergedArea" double bb))
-  (segment-query ("cpBBSegmentQuery" bool vect vect))
-  (intersects-seqment ("cpBBIntersectsSegment" bool vect vect))
-  (clamp-vect ("cpBBClampVect" vect vect))
-  (wrap-vect ("cpBBWrapVect" vect vect)))
 
 ;-------------------------------------------------------
 ; cpBody
