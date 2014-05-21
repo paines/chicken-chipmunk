@@ -1,3 +1,2 @@
 ((author "Richard van Roy")
- (needs coati-primitives)
  (synopsis "Wrappers to the 2d physic library Chipmunk"))
