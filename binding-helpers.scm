@@ -21,10 +21,10 @@ THE SOFTWARE.
 |#
 
 
-(define-syntax vect-list->f64vector
+(define-syntax vect-list->f32vector
   (syntax-rules ()
     ((_  vects)
-     (list->f64vector (append-map f64vector->list vects)))))
+     (list->f32vector (append-map f32vector->list vects)))))
 
 ; Chipmunk often passes or returns structures of type cpVect and cpBB by
 ; value. This functions works just like foreign-lambda but adds the types
@@ -39,14 +39,14 @@ THE SOFTWARE.
                 
                 (define (convert-arg-pair arg-pair)
                   `(,(case (car arg-pair)
-                       ((vect bb) 'f64vector)
+                       ((vect bb) 'f32vector)
                        (else (car arg-pair)))
                     ,(cadr arg-pair)))
                 
                 (define (convert-arg-pairs)
                   (append (map convert-arg-pair arg-pairs)
                           (case ret-type
-                               ((vect bb) `((f64vector ,ret)))
+                               ((vect bb) `((f32vector ,ret)))
                                (else (list)))))
 
                 (define (comma-seperate strings)
@@ -91,7 +91,7 @@ THE SOFTWARE.
                 (case ret-type
                   ((vect bb)
                    `(,(r 'lambda) (,@(map cadr arg-pairs))
-                     (,(r 'let) ((,ret (make-f64vector ,(case ret-type ((vect) 2) ((bb) 4)))))
+                     (,(r 'let) ((,ret (make-f32vector ,(case ret-type ((vect) 2) ((bb) 4)))))
                       ((,(r 'foreign-lambda*) ,'void ,(convert-arg-pairs) ,(create-c-body))
                        ,@(append (map cadr arg-pairs) (list ret)))
                       ,ret)))
