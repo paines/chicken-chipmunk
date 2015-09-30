@@ -1,6 +1,6 @@
 Bindings to Chipmunk2D
 
-- Version: 0.1
+- Version: 0.9
 - Author: Richard van Roy
 - Project: [[https://github.com/pluizer/chicken-chipmunk]]
 - License: [[http://opensource.org/licenses/MIT][MIT]]
